@@ -10,6 +10,17 @@
   max-height: 100%;
 }
 
+.quiz-category .error-hide {
+  visibility: hidden;
+  position: absolute;
+}
+
+.quiz-category .error-show {
+  font-family: var(--josefinSans);
+  color: hsl(0, 100%, 74%);
+  transition: 200ms ease-in;
+}
+
 .quiz-category .quiz-start {
   font-family: var(--josefinSans);
   display: flex;
