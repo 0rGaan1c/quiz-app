@@ -1,13 +1,17 @@
 import React, { useState, useRef } from "react";
+import { fetchData } from "./api";
 import "./QuizCategory.css";
 
 const QuizCategory = ({ data }) => {
   const numberRef = useRef(null);
+  const difficultyRef = useRef(null);
   const [isValidRange, setIsValidRange] = useState(true);
   const [isValidInput, setIsValidInput] = useState(true);
 
   const handleClick = () => {
     const numberOfQuestions = numberRef.current.value;
+    const category = data.category;
+
     if (!numberOfQuestions) {
       console.log("please enter a valid number");
       setIsValidInput(false);
@@ -24,12 +28,13 @@ const QuizCategory = ({ data }) => {
       }, 2000);
       return;
     }
+
+    fetchData();
   };
 
   return (
     <>
       <div className="quiz-category">
-        <img src={data.img} alt={data.type} />
         <p className={isValidInput ? "error-hide" : "error-show"}>
           Please enter a valid number
         </p>
@@ -38,7 +43,7 @@ const QuizCategory = ({ data }) => {
         </p>
         <div className="quiz-start">
           <div className="quiz-mode">
-            <select name="difficulty" id="difficulty">
+            <select name="difficulty" id="difficulty" ref={difficultyRef}>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
