@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { fetchCategories, fetchData } from "./api";
+import Heading from "./components/Heading";
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [numberOfQuestions, setNumberOfQuestions] = useState("10");
@@ -34,12 +36,21 @@ function App() {
     fetchAPI();
   };
 
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="one"></div>
+        <div className="two"></div>
+        <div className="three"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <h1 class="main-heading">Quiz</h1>
-
-      <form class="start-quiz-form">
-        <select ref={categoryRef} class="select-fields">
+      <Heading />
+      <form className="start-quiz-form">
+        <select ref={categoryRef} className="select-fields">
           {categories.map(({ id, name }) => {
             return (
               <option key={id} value={id}>
@@ -49,7 +60,7 @@ function App() {
           })}
         </select>
 
-        <select ref={difficultyRef} class="select-fields">
+        <select ref={difficultyRef} className="select-fields">
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
@@ -62,7 +73,7 @@ function App() {
           }}
           placeholder="No. of Questions"
         />
-        <button onClick={handleSubmit} class="btn">
+        <button onClick={handleSubmit} className="btn">
           Take Quiz
         </button>
       </form>
