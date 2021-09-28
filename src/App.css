@@ -1,16 +1,90 @@
 :root {
-  --alata: "Alata", sans-serif;
-  --josefinSans: "Josefin Sans", sans-serif;
+  /* primary */
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+
+  /* accent */
+  --blue: hsl(248, 32%, 49%);
+
+  /* neutral */
+  --darkBlue: hsl(249, 10%, 26%);
+  --grayishBlue: hsl(246, 25%, 77%);
+  --poppins: "Poppins", sans-serif;
+
+  font-family: var(--poppins);
 }
 
 .App {
   text-align: center;
-  width: 80%;
+  width: 50%;
   margin: auto;
 }
 
-h1 {
-  font-family: var(--alata);
+.main-heading {
   font-size: 3rem;
-  color: cornsilk;
+  color: white;
+}
+
+.start-quiz-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 6px rgba(62, 60, 73, 0.3);
+  margin-top: 3.75rem;
+  border-radius: 12px;
+}
+
+.select-fields {
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgba(62, 60, 63, 0.7);
+  width: 90%;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(62, 60, 73, 0.3);
+  border-radius: 12px;
+}
+
+select:focus {
+  outline: var(--blue) solid 1px;
+}
+
+input {
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgba(62, 60, 63, 0.7);
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(62, 60, 73, 0.3);
+  border-radius: 12px;
+}
+
+input:focus {
+  outline: var(--blue) solid 1px;
+}
+
+.btn {
+  background-color: var(--blue);
+  font-size: 1rem;
+  color: white;
+  font-family: var(--poppins);
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  border: 0;
+  box-shadow: 0 4px hsla(248, 32%, 49%, 0.2);
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.btn:focus {
+  outline: var(--blue) solid 1px;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
