@@ -5,7 +5,7 @@ const url = "https://opentdb.com/api.php";
 export const fetchData = async (category, difficulty, numberOfQuestions) => {
   let changeableUrl = url;
   changeableUrl = `${url}?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`;
-  console.log(changeableUrl);
+  // console.log(changeableUrl);
   try {
     const {
       data: { results },
