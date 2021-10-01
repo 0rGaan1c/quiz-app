@@ -25,15 +25,26 @@ function shuffle(array) {
 const QuizQuestions = ({ questions }) => {
   const [index, setIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(questions[index]);
-  const [selected, setSelected] = useState(false);
   const [options, setOptions] = useState(
     shuffle([
       ...currentQuestion.incorrect_answers,
       currentQuestion.correct_answer,
     ])
   );
+  const [selected, setSelected] = useState(
+    new Array(options.length).fill(false)
+  );
 
-  // console.log(currentQuestion);
+  const handleSelectedClick = (idx) => {
+    const newSelected = selected.map((element, index) => {
+      if (index === idx) {
+        return !element;
+      }
+      return false;
+    });
+    setSelected(newSelected);
+  };
+
   return (
     <div className="quiz-question-container">
       <h1 className="main-heading">{`${index + 1}/${questions.length}`}</h1>
@@ -44,17 +55,25 @@ const QuizQuestions = ({ questions }) => {
             return (
               <div
                 key={idx}
-                className={`${selected ? "selected" : ""} option`}
-                // onClick={() => {
-                //   console.log(idx);
-                //   setSelected(!selected);
-                // }}
+                className={`${selected[idx] ? "selected" : ""} option`}
+                onClick={() => {
+                  handleSelectedClick(idx);
+                }}
               >
                 {option}
               </div>
             );
           })}
         </div>
+        <button
+          className={`${!selected.includes(true) ? "btn-disabled" : "btn"}`}
+          disabled={!selected.includes(true)}
+          onClick={() => {
+            console.log("nani");
+          }}
+        >
+          Next Question
+        </button>
       </div>
     </div>
   );
