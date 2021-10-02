@@ -1,6 +1,6 @@
 # Quiz App
 
-!screenshot1(./screenshot1.png)
+![screenshot1](./screenshot1.png)
 
 - [Live Demo](https://quiz-app-blond-five.vercel.app/)
 
