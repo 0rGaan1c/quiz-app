@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import he from "he";
 import "./QuizQuestions.css";
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -96,7 +97,9 @@ const QuizQuestions = ({ questions }) => {
         <>
           <h1 className="main-heading">{`${index + 1}/${questions.length}`}</h1>
           <div className="quiz-container">
-            <h2 className="sub-heading"> {currentQuestion.question} </h2>
+            <h2 className="sub-heading">
+              {he.decode(currentQuestion.question)}
+            </h2>
             <div className="options">
               {options.map((option, idx) => {
                 return (
@@ -107,7 +110,7 @@ const QuizQuestions = ({ questions }) => {
                       handleSelectedClick(idx);
                     }}
                   >
-                    {option}
+                    {he.decode(option)}
                   </div>
                 );
               })}
