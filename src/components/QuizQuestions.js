@@ -39,10 +39,6 @@ const QuizQuestions = ({ questions }) => {
   );
 
   useEffect(() => {
-    setOptions();
-  }, []);
-
-  useEffect(() => {
     setCurrentQuestion(questions[index]);
     setSelected(new Array(options.length).fill(false));
     setOptions(
