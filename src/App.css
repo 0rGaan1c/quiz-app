@@ -15,6 +15,10 @@
   font-family: var(--poppins);
 }
 
+body {
+  background-color: var(--red);
+}
+
 .App {
   text-align: center;
   width: 50%;
@@ -97,6 +101,29 @@ input:focus {
 
 .btn:hover {
   transform: scale(1.05);
+}
+
+@media only screen and (max-width: 1024px) {
+  .App {
+    width: 96%;
+  }
+
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .select-fields {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  input {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
 }
 
 /* https://codepen.io/mostafa-y-mansour/pen/MWozpKM */

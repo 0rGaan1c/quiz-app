@@ -83,7 +83,7 @@ const QuizQuestions = ({ questions }) => {
     <div className="quiz-question-container">
       {showResult ? (
         <>
-          <h1 className="main-heading">Finished </h1>
+          <h1 className="main-heading">Finished</h1>
           <div className="quiz-container">
             <h2 className="sub-heading">
               You got {score} out of {questions.length} right.
